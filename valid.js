@@ -4,24 +4,34 @@ var password = document.forms['form']['password'];
 var emailId = document.getElementById('email');
 var passId = document.getElementById('password');
 
-function validated(){
-    if(email.value.length < 10){
-        emailId.classList.add('emailError');
-        if(password.value.length < 6){
-            passId.classList.add('passwordError');
-            return false;
-        }
-        return false;
-    }else if(password.value.length < 6){
-        emailId.classList.remove('emailError');
-        passId.classList.add('passwordError');
-        return false;
-    }else{
-        fetch("https://reqres.in/api/login", {
+var btn = document.getElementById('btnStatus');
+
+function validatedEmail(thisValue, id){
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    console.log(thisValue);
+    if(!re.test(thisValue)){
+        var thisId = document.getElementById(id);
+        thisId.classList.add(id+'Error');
+        btn.disabled = true;
+    }
+    btn.disabled = false;
+}
+
+function validatedPassword(thisValue, id){
+    if(thisValue === null){
+        thisId.classList.add(id+'Error');
+        btn.disabled = true;
+    }
+    btn.disabled = false;
+}
+
+function postLogin (email, password){
+
+    fetch("https://cors-anywhere.herokuapp.com/https://reqres.in/api/login", {
             "method": "POST",
             "headers": {
-                "cookie": "__cfduid=da5a722a4508c0d0c8f89a54c7461782d1595890178",
-                "content-type": "application/json"
+                "content-type": "application/json",
+                "origin" : "localhost"
             },
             "body": {
                 "email": email,
@@ -33,6 +43,5 @@ function validated(){
             })
             .catch(err => {
             console.error(err);
-        });
-    }
+            });
 }
