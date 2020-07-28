@@ -1,4 +1,3 @@
-'use strict';
 var values = [];
 var code = document.querySelector('div');
 fetch("https://reqres.in/api/users?page=1")
