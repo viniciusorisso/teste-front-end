@@ -1,0 +1,109 @@
+$bgBody : #EFF0F3;
+$Primary : #174DBA;
+$White : #ffffff;
+//$Gray : #EFF0F3;
+$Gray : #acacac;
+$Dark : #505050;
+
+@mixin flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+};
+
+header{
+    @include flexCenter();
+
+    background-color: $Primary;
+    img{
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        width: 25vh;
+    }
+}
+
+body{
+    margin: 0;
+    background-color: $bgBody;
+}
+
+.container{
+    margin-top: 5vh;
+    margin-left: 10vh;
+    margin-right: 10vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.container>*:last-child{
+    justify-self: center;
+    align-self: center;
+}
+
+.container__text{
+    flex: 100%;
+    font-size: 48px;
+    font-weight: bold;
+    font-family: Helvetica, sans-serif;
+    color: $Primary;
+    margin-bottom: 5vh;
+}
+
+.container__card{
+    flex: 25%;
+    width: 50vh;
+    height: 45vh;
+    background-color: $White;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 5vh;
+    margin-bottom: 5vh;
+}
+
+.container__card>*{
+    margin-bottom: 4vh;
+}
+
+.container__card>*:first-child{
+    align-self: flex-end;
+}
+
+.container__card__pen{
+    margin-right: 1vh;
+    margin-top: 1vh;
+    height: 3vh;
+    width: 3vh;
+}
+
+.container__card__avatar{
+    border-radius: 50%;
+    height: 15vh;
+    width: 15vh;
+}
+
+.container__card__name{
+    font-size: 16px;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    color: $Primary;
+}
+
+.container__card__email{
+    font-size: 16px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 500;
+    //color: $Gray;
+    color: $Dark;
+}
+
+.container__footerNumber{
+    flex:100%;
+    font-size: 16px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 500;
+    color: $Dark;
+    margin-bottom: 1vh;
+}
