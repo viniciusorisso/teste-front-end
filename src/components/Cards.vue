@@ -5,7 +5,7 @@
                 <a href="#">
                     <img src="../assets/edit-icon.png" class="cards__card__pen">
                 </a>
-                <img :src="card.avatar" class="container__cards__card__avatar">
+                <img :src="card.avatar" class="cards__card__avatar">
                 <div class="cards__card__name">{{card.name}}</div>
                 <div class="cards__card__email">{{card.email}}</div>
             </div>
